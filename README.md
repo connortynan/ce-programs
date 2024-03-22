@@ -1,4 +1,4 @@
-# ti84plusce-programs
+# ce-programs
 Various programs for the TI84 Plus CE calculator, written in TI-BASIC and C.
 
 Files are stored as a src directory for viewable source code, and a bin directory containing compiled `.8xp` files 
