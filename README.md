@@ -7,8 +7,23 @@ TI-BASIC programs are difficult to share in a plaintext, so i just put them in `
 
 **NOTE: C Programs are made using [CE C/C++ Toolchain](https://github.com/CE-Programming/toolchain), and probably require [Libload](https://github.com/CE-Programming/libload) to run.**
 
+## [char-star-int](char-star-int) (TI-BASIC)
+A solution to this coding problem, all in TI-BASIC:
+```
+// Give the output of this code
+// (assuming a little endian machine)
+
+#include <stdio.h>
+
+int main(int argc, char* argv[]) {
+  unsigned long long x = {CAREFULLY CRAFTED MAGIC NUMBER};
+  printf("%s\n", (char*) &x);
+}
+```
+Basically just divides a big number by 256 a bunch and finds characters in a look up table, but works with arbitrarily large inputs, avoiding the automatic rounding at values >10^10, preserving exact integer values no matter how big the numbers are.
+
 ## [str-int-functions](str-int-functions) (TI-BASIC)
-Performs arithmetic on arbitrarily large integers, using strings to store digits to avoid the calculator rounding values greater than 10^10.
+Performs arithmetic on arbitrarily large integers, using strings to store digits to avoid the calculator rounding values >10^10.
 This allows for large numbers to be calculated while maintaining the exact integer value for applications involving modulo (or some other reason for unrounded large integer values)
 
 To use: Input positive integer values in both inputs, string conversion happens automatically

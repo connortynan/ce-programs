@@ -1,0 +1,40 @@
+:" Connor Tynan
+:" C (char*)<long/int> coding problem in TI-BASIC
+:" I don't have a good name for this one
+:"
+:" Overrides: Str1, Str3, Str4, Str9, R
+:" Output: Str2 = (char *) &x; where x = int(Str1)
+:" Note: byte 0x00 is the null byte, which is denoted in the output as the character ₀
+
+:Input Str1
+:"+"→Str2
+:"₀............................... !'#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~."→Str9
+
+:Str1→Str3
+
+:While expr(Str3)
+ :"Get result of division and replace Str3, save R as remainder
+ :"+"→Str4
+ :0→R
+
+ :For(I,1,length(Str3))
+  :R*10+expr(sub(Str3,I,1))→R
+  :Str4+toString(int(R/256))→Str4
+  :remainder(R,256)→R
+ :End
+
+ :"Str9 maps the integer value to its ASCII representation,
+ :"any value that is not useful is represented as a period (.), null byte is subscript-zero (₀)
+ :sub(Str4,2,length(Str4)-1)→Str3
+
+ :"Write to Str2 with the ASCII char that corresponds to the remainder
+ :If R<128:Then
+  :Str2+sub(Str9,R+1,1)→Str2
+ :Else
+  :Str2+"."→Str2
+ :End
+
+:"Repeat until the result of the division is 0
+:End
+
+:sub(Str2,2,length(Str2)-1)→Str2
