@@ -1,0 +1,29 @@
+:" Connor Tynan
+:" StrInt Addition
+:"
+:" Overrides: Str1, Str2
+:" Outputs: Str3 = int(Str1)+int(Str2)
+
+:Input Str1
+:Input Str2
+:"+"→Str3
+:0→C
+
+:For(I,1,max(length(Str1),length(Str2)))
+ :0→N
+ :0→M
+ :If I≤length(Str1):Then
+  :expr(sub(Str1,length(Str1)-I+1,1))→N
+ :End
+ :If I≤length(Str2):Then
+  :expr(sub(Str2,length(Str2)-I+1,1))→M
+ :End
+ :N+M+C→V
+ :int(V/10)→C
+ :toString(remainder(V,10))+Str3→Str3
+:End
+:If V>9:Then
+ :toString(int(V/10))+Str3→Str3
+:End
+
+:sub(Str3,1,length(Str3)-1)→Str3

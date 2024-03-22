@@ -1,0 +1,30 @@
+:" Connor Tynan
+:" StrInt Multiplication
+:"
+:" Overrides: Str1, Str2
+:" Outputs: Str3 = int(Str1)*int(Str2)
+
+:Input Str1
+:Input Str2
+
+:DelVar ⌊RES
+:length(Str1)+length(Str2)→dim(⌊RES)
+
+:For(I,1,length(Str1))
+ :For(J,1,length(Str2))
+  :(length(Str1)-I+1)+(length(Str2)-J+1)→K
+  :expr(sub(Str1,I,1))*expr(sub(Str2,J,1))+⌊RES(K)→⌊RES(K)
+ :End
+:End
+
+:For(I,1,dim(⌊RES)-1)
+ :int(⌊RES(I)/10)+⌊RES(I+1)→⌊RES(I+1)
+ :remainder(⌊RES(I),10)→⌊RES(I)
+:End
+
+:"θ"→Str3
+:For(I,1,dim(⌊RES))
+ :toString(⌊RES(I))+Str3→Str3
+:End
+
+:sub(Str3,1,length(Str3)-2)→Str3

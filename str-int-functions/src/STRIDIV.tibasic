@@ -1,0 +1,19 @@
+:" Connor Tynan
+:" StrInt Division
+:"
+:" Overrides: Str1, Str2
+:" Outputs: Str3 = int(Str1)/int(Str2) (w/ remainder)
+
+:Input Str1
+:Input D
+:"+"→Str2
+
+:0→R
+
+:For(I,1,length(Str1))
+ :R*10+expr(sub(Str1,I,1))→R
+ :Str2+toString(int(R/D))→Str2
+ :int(D*fPart(R/D))→R
+:End
+
+:sub(Str2,2,length(Str2)-1)+" R"+toString(R)
