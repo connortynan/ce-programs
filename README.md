@@ -1,5 +1,5 @@
 # ti84plusce-programs
-Various programs for the TI84 Plus CE calculator, in TI-BASIC and C.
+Various programs for the TI84 Plus CE calculator, written in TI-BASIC and C.
 
 Files are stored as a src directory for viewable source code, and a bin directory containing compiled `.8xp` files 
 
@@ -32,6 +32,6 @@ Build Instructions: Follow the section [Building Programs](https://ce-programmin
 - Launch the compiler terminal
   - Windows: Open `cedev.bat` in your `CEdev` folder
   - Linux/MacOS Launch a terminal session
-- Navigate to `..../ti84plusce-programs/ti-canvas`
+- Navigate to `..../ce-programs/ti-canvas`
 - Run `make`
 - Profit. (compiles to `bin/CANVAS.8xp`)
