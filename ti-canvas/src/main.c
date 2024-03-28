@@ -36,7 +36,7 @@ int main(void)
     int16_t ditherPattern[ditherDim*ditherDim];
     dither_generateDitherPattern(ditherPattern, ditherDim, ditherStrength);
 
-    // Precompute a flipped coordinate array to make RGB easier
+    // Precompute a flipped coordinate array to make RGB dithering easier
     uint8_t flip[ditherDim];
     for (uint8_t i = 0; i < ditherDim; i++) {
         flip[i] = ditherDim-1 - i;
